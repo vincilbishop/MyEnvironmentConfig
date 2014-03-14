@@ -13,14 +13,33 @@
 
 @property (nonatomic,strong) NSBundle *resourceBundle;
 @property (nonatomic,strong) NSString *infoPListEnvironmentKey;
-@property (nonatomic,strong) NSString *environmentPListFilename;
+@property (nonatomic,strong) NSString *environmentPList;
 @property (nonatomic,strong) NSString *defaultConfigurationKey;
 
 @end
 
 @implementation MYEnvironmentConfig
 
-- (id)initWithPListFilename:(NSString*)environmentPListFilename environmentKey:(NSString*)infoPListEnvironmentKey defaultConfigKey:(NSString*)defaultConfigurationKey resourceBundle:(NSBundle*)resourceBundle
+static MYEnvironmentConfig *_sharedConfig;
+
++ (MYEnvironmentConfig*) sharedConfig
+{
+    NSAssert(_sharedConfig,@"Must set sharedConfig before using!");
+    return _sharedConfig;
+}
+
++ (void) setSharedConfig:(MYEnvironmentConfig*)sharedConfig
+{
+    _sharedConfig = sharedConfig;
+}
+
++ (void) initSharedConfigWithPList:(NSString*)environmentPList
+{
+    MYEnvironmentConfig *config = [[MYEnvironmentConfig alloc] initWithPList:environmentPList];
+    [self setSharedConfig:config];
+}
+
+- (id)initWithPList:(NSString*)environmentPList environmentKey:(NSString*)infoPListEnvironmentKey defaultConfigKey:(NSString*)defaultConfigurationKey resourceBundle:(NSBundle*)resourceBundle
 {
     self = [super init];
     
@@ -28,16 +47,16 @@
         _resourceBundle = resourceBundle;
         _infoPListEnvironmentKey = infoPListEnvironmentKey;
         _defaultConfigurationKey = defaultConfigurationKey;
-        _environmentPListFilename = environmentPListFilename;
+        _environmentPList = environmentPList;
         [self loadEnvironmentConfig];
     }
     
     return self;
 }
 
-- (id)initWithPListFilename:(NSString*)environmentPListFilename
+- (id)initWithPList:(NSString*)environmentPList
 {
-    self = [self initWithPListFilename:environmentPListFilename environmentKey:nil defaultConfigKey:nil resourceBundle:nil];
+    self = [self initWithPList:environmentPList environmentKey:nil defaultConfigKey:nil resourceBundle:nil];
     
     if (self) {
         
@@ -64,7 +83,7 @@
     
     NSString* configurationDict = [[self.resourceBundle infoDictionary] objectForKey:self.infoPListEnvironmentKey];
     NSBundle* bundle = self.resourceBundle;
-    NSString* envsPListPath = [bundle pathForResource:self.environmentPListFilename ofType:nil];
+    NSString* envsPListPath = [bundle pathForResource:self.environmentPList ofType:nil];
     NSDictionary* environments = [[NSDictionary alloc] initWithContentsOfFile:envsPListPath];
     NSDictionary* environment = [environments objectForKey:configurationDict];
     
