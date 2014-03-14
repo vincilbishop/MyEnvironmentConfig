@@ -1,0 +1,15 @@
+# ============================================
+# CocoaPods
+# The best way to manage library dependencies
+# in Objective-C projects.
+# @see http://cocoapods.org
+# @see http://docs.cocoapods.org
+# ============================================
+
+# iOS Platform
+platform :ios, '7.0'
+
+# Inhibits all the warnings from the CocoaPods libraries.
+inhibit_all_warnings!
+
+pod 'MyEnvironmentConfig'

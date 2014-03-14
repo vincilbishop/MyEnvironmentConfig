@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Defaults</key>
+	<dict>
+		<key>httpURLFormat</key>
+		<string>https://%@/</string>
+	</dict>
+	<key>Debug</key>
+	<dict>
+		<key>host</key>
+		<string>development.yoursite.com</string>
+		<key>httpURLFormat</key>
+		<string>http://%@/</string>
+	</dict>
+	<key>AdHoc</key>
+	<dict>
+		<key>host</key>
+		<string>testing.yoursite.com</string>
+	</dict>
+	<key>Distribution</key>
+	<dict>
+		<key>host</key>
+		<string>www.yoursite.com</string>
+	</dict>
+</dict>
+</plist>

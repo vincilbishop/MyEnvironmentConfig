@@ -1,0 +1,10 @@
+PODS:
+  - MyEnvironmentConfig (1.0.0)
+
+DEPENDENCIES:
+  - MyEnvironmentConfig
+
+SPEC CHECKSUMS:
+  MyEnvironmentConfig: 32d6868209bda73b2b48b29fbf6c80a62a9c85cb
+
+COCOAPODS: 0.29.0
