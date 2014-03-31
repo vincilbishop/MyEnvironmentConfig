@@ -19,6 +19,7 @@
 
 /**
  A shared instance for convenience.
+ If not otherwise specified using initSharedConfigWithPList, looks for a file named "Environments.plist" in the main bundle.
  @returns An initialized static shared instance.
  */
 + (MYEnvironmentConfig*) sharedConfig;

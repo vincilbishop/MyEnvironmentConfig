@@ -24,7 +24,9 @@ static MYEnvironmentConfig *_sharedConfig;
 
 + (MYEnvironmentConfig*) sharedConfig
 {
-    NSAssert(_sharedConfig,@"Must set sharedConfig before using!");
+    if (!_sharedConfig) {
+        _sharedConfig = [MYEnvironmentConfig new];
+    }
     return _sharedConfig;
 }
 
@@ -64,6 +66,18 @@ static MYEnvironmentConfig *_sharedConfig;
     
     return self;
 }
+
+- (id)init
+{
+    self = [self initWithPList:@"Environments.plist" environmentKey:nil defaultConfigKey:nil resourceBundle:nil];
+    
+    if (self) {
+        
+    }
+    
+    return self;
+}
+
 
 #pragma mark - Environment Config -
 
