@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 	spec.name		= 'MyEnvironmentConfig'
-	spec.version	= '1.0.0'
+	spec.version	= '1.0.1'
 	spec.homepage   = "http://github.com/premosystems/MyEnvironmentConfig"
 	spec.author     = { "Vincil Bishop" => "vincil.bishop@vbishop.com" }
 	spec.license	= 'MIT'
