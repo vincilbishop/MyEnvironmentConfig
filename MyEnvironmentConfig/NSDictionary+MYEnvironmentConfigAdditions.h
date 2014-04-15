@@ -1,5 +1,5 @@
 //
-//  NSDictionary+PSEnvironmentConfigAdditions.h
+//  NSDictionary+MYEnvironmentConfigAdditions.h
 //  
 //
 //  Created by Vincil Bishop on 12/6/12.
@@ -10,7 +10,7 @@
 
 @interface NSDictionary (MYEnvironmentConfigAdditions)
 
-+ (NSDictionary *) MY_dictionaryByMerging: (NSDictionary *) dict1 with: (NSDictionary *) dict2;
-- (NSDictionary *) MY_dictionaryByMergingWith: (NSDictionary *) dict;
++ (NSDictionary *) MYEC_dictionaryByMerging: (NSDictionary *) dict1 with: (NSDictionary *) dict2;
+- (NSDictionary *) MYEC_dictionaryByMergingWith: (NSDictionary *) dict;
 
 @end

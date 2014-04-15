@@ -104,7 +104,7 @@ static MYEnvironmentConfig *_sharedConfig;
     // Let's coimbine values with the default config
     NSDictionary *defaultValues = [environments valueForKeyPath:self.defaultConfigurationKey];
     
-    NSDictionary *combinedValues = [defaultValues MY_dictionaryByMergingWith:environment];
+    NSDictionary *combinedValues = [defaultValues MYEC_dictionaryByMergingWith:environment];
     
     _configValues = combinedValues;
 
