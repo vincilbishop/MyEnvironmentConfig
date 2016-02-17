@@ -1,7 +1,7 @@
 MyEnvironmentConfig
 ===================
 
-Helper classes that map configuration values to XCode build configurations. 
+Helper classes that map configuration values to Xcode build configurations. 
 
 ## Installation
 
